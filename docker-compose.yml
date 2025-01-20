@@ -1,0 +1,15 @@
+version: '3.8' 
+services:
+  postgres:
+    image: postgres:latest  # Specifies the PostgreSQL Docker image
+    container_name: university_postgres  # A name for the container
+    environment:  # Environment variables for PostgreSQL
+      POSTGRES_USER: admin  # Database username
+      POSTGRES_PASSWORD: admin  # Database password
+      POSTGRES_DB: university_db  # Default database name
+    ports:
+      - '5432:5432'  # Exposes PostgreSQL on port 5432
+    volumes:  # Mounts a volume to persist data
+      - postgres_data:/var/lib/postgresql/data
+volumes:
+  postgres_data:  # Defines a volume for database persistence
